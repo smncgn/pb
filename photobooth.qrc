@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>InvisibleButton.qml</file>
+        <file>ModeSelection.qml</file>
+        <file>PasswordDialog.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>SlideShow.qml</file>
+        <file>main.qml</file>
+        <file>AppSettings.qml</file>
+        <file>CaptureModule.qml</file>
+        <file>ProgressCircle.qml</file>
+    </qresource>
+</RCC>

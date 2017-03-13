@@ -10,41 +10,42 @@ Page {
     signal showAppSettings()
     signal showSlideShow()
 
-    // Button Diashow
-    Button {
+    Column {
+        id: selection
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: 90
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 66
 
-        text: "Diashow"
+        spacing: 12
 
-        onClicked: showSlideShow()
+        // Button Ein Foto
+        ButtonWithIcon {
+            text: "EIN FOTO"
+            icon: "qrc:/icons/ic_portrait_black_36dp_1x.png"
 
-    }
+            width: parent.width
 
-    // Button Ein Foto
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenterOffset: -90
-        anchors.verticalCenterOffset: -90
+            onClicked: takePhoto(1)
+        }
 
-        text: "Ein Foto"
+        // Button Vier Fotos
+        ButtonWithIcon {
+            text: "VIER FOTOS"
+            icon: "qrc:/icons/ic_photo_library_black_36dp_1x.png"
 
-        onClicked: takePhoto(1)
+            onClicked: takePhoto(4)
+        }
 
-    }
+        // Button Diashow
+        ButtonWithIcon {
+            text: "DIASHOW"
+            icon: "qrc:/icons/ic_slideshow_black_36dp_1x.png"
 
-    // Button Vier Fotos
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenterOffset: 90
-        anchors.verticalCenterOffset: -90
+            width: parent.width
 
-        text: "Vier Fotos"
+            onClicked: showSlideShow()
 
-        onClicked: takePhoto(4)
+        }
 
     }
 

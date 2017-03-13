@@ -2,13 +2,18 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
+import QtGraphicalEffects 1.0
 import QtMultimedia 5.4
 
 FocusScope {
     property Camera camera
     property int number_of_photos
 
-    property int duration: 10
+    FontLoader {
+        id: robotoMedium
+        source: "qrc:/fonts/Roboto-Regular.ttf"
+    }
+
 
     id: captureModule
 
@@ -20,18 +25,15 @@ FocusScope {
         anchors.top: parent.top
         anchors.right: parent.right
 
-        //        Material.primary: Material.Teal
-
         Text {
             id: countDownText
             text: "10"
-            height: 64
-            width: parent.width - 16
 
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
 
             font {
+                family: robotoMedium.name
                 bold: true
                 pixelSize: 56
             }
@@ -43,12 +45,34 @@ FocusScope {
             }
         }
 
+        Image {
+            id: imageCamera
+            visible: false
+
+            source: "qrc:/icons/ic_photo_camera_black_48dp_2x.png"
+            sourceSize.height: 96
+            sourceSize.width: 96
+
+            width: 64
+            height: 64
+
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+            ColorOverlay{
+                anchors.fill: imageCamera
+                source: imageCamera
+                color: Material.accent
+            }
+        }
 
         ProgressCircle {
             id: progressCricle
             size: 144
-            colorCircle: "#607D8B"  // Material BlueGrey
-            colorBackground: "#FAFAFA"
+            colorCircle: Material.color(Material.Teal)
+            colorBackground: Material.color(Material.Grey)
             showBackground: true
             arcBegin: 0
             arcEnd: 360
@@ -90,6 +114,7 @@ FocusScope {
         progressCricle.arcEnd = 0
         timerText.start()
 
+        imageCamera.visible = false
     }
 
     function updateText(){
@@ -97,8 +122,8 @@ FocusScope {
             countDownText.text = duration.toString()
             duration -= 1
         } else { // Null erreicht
-            countDownText.text = ";-)"
-
+            countDownText.text = ""
+            imageCamera.visible = true
             timerText.stop()
 
         }

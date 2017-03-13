@@ -4,6 +4,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import Qt.labs.settings 1.0
 import QtMultimedia 5.4
+//import QtQml 2.2
 
 ApplicationWindow {    
     width: 800
@@ -100,6 +101,13 @@ ApplicationWindow {
              frameRate: 30
         }
     }
+
+
+//    Instantiator {
+//        model : ["-Black", "-BlackItalic", "-Bold", "-BoldItalic", "-Italic", "-Light", "-LightItalic", "-Medium", "-MediumItalic", "-Regular", "-Thin", "-ThinItalic"]
+
+//        FontLoader { source: "qrc:/fonts/fonts/Roboto" + modelData + ".ttf" }
+//    }
 
     /*
     state: "SlideShow"

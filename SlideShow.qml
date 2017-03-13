@@ -3,6 +3,8 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import Qt.labs.folderlistmodel 2.1
 
+import "fonts"
+
 Page {
     // Anzeigedauer eines Bilds in ms
     property int slide_duration: 6000
@@ -269,12 +271,13 @@ Page {
 
 
     // Button zum Unterbrechen und zum Auswahlbildschirm zu wechseln
-    Button {
-        text: "Start"
+    ButtonWithIcon {
+        text: "START"
+        icon: "qrc:/icons/ic_touch_app_black_36dp_1x.png"
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 10
+        anchors.bottomMargin: 66
 
         onClicked: {
             root.showModeSelection();
